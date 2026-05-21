@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammed Zaheer R | Python Django & Full Stack Developer</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Muhammed Zaheer R - Experienced Python Django & Flutter Developer. Specialized in scalable backend architectures, secure auth systems, payment integrations, and responsive cross-platform applications.">
+  <meta name="keywords" content="Muhammed Zaheer R, Django Developer, Python Developer, Flutter Developer, Full Stack Developer, Software Engineer, Kochi, CarePoint, Web Developer Portfolio">
+  <meta name="author" content="Muhammed Zaheer R">
+  
+  <!-- Favicon placeholder (Uses nice SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            stone: {
+              50: '#fafaf9',
+              100: '#f5f5f4',
+              200: '#e7e5e4',
+              300: '#d6d3d1',
+              400: '#a8a29e',
+              500: '#78716c',
+              600: '#57534e',
+              700: '#44403c',
+              800: '#292524',
+              900: '#1c1917',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-stone-50 text-stone-900 selection:bg-indigo-100 selection:text-indigo-900 antialiased overflow-x-hidden">
+
+  <!-- 1. Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- 2. Sticky Glassmorphism Header & Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+    <nav class="container mx-auto px-6 py-4 lg:py-6 flex items-center justify-between transition-all duration-300">
+      <!-- Logo Branding -->
+      <a href="#home" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-premium flex items-center justify-center text-white font-bold text-lg shadow-md shadow-indigo-100 group-hover:scale-105 transition-transform">
+          MZ
+        </div>
+        <span class="font-heading font-bold text-xl tracking-tight text-stone-900 group-hover:text-indigo-600 transition-colors">
+          zaheer.io
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu Links -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#home" class="nav-link desktop-link text-stone-600 hover:text-stone-900 text-sm font-medium transition-colors py-1">Home</a>
+        <a href="#about" class="nav-link desktop-link text-stone-600 hover:text-stone-900 text-sm font-medium transition-colors py-1">About</a>
+        <a href="#experience" class="nav-link desktop-link text-stone-600 hover:text-stone-900 text-sm font-medium transition-colors py-1">Experience</a>
+        <a href="#skills" class="nav-link desktop-link text-stone-600 hover:text-stone-900 text-sm font-medium transition-colors py-1">Skills</a>
+        <a href="#projects" class="nav-link desktop-link text-stone-600 hover:text-stone-900 text-sm font-medium transition-colors py-1">Projects</a>
+        <a href="#why-hire" class="nav-link desktop-link text-stone-600 hover:text-stone-900 text-sm font-medium transition-colors py-1">Why Hire</a>
+      </div>
+
+      <!-- Action Button & Hamburger Toggle -->
+      <div class="flex items-center gap-4">
+        <a href="#contact" class="hidden sm:inline-flex btn-secondary text-sm py-2.5 px-5 border border-stone-200">
+          <!-- Inline SVG Mail -->
+          <svg class="w-4 h-4 mr-2 text-stone-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          Contact Me
+        </a>
+        
+        <!-- Hamburger Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-stone-100 text-stone-700 transition-colors" aria-label="Toggle Navigation">
+          <!-- Inline SVG Menu -->
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 3. Mobile Navigation Menu Sidebar Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
+    <!-- Backdrop overlay click close -->
+    <div class="absolute inset-0 bg-stone-950/20 backdrop-blur-sm" id="mobile-menu-close"></div>
+    <!-- Drawer side layout -->
+    <div class="absolute right-0 top-0 bottom-0 w-80 bg-stone-50 border-l border-stone-200 p-6 flex flex-col justify-between shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between mb-8">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-gradient-premium flex items-center justify-center text-white font-bold text-sm shadow">
+              MZ
+            </div>
+            <span class="font-heading font-bold text-lg tracking-tight">zaheer.io</span>
+          </div>
+          <button class="p-2 rounded-lg hover:bg-stone-100 text-stone-500 transition-colors" id="mobile-menu-close-btn" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full'); document.body.style.overflow = '';">
+            <!-- Inline SVG Close X -->
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
+          </button>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <a href="#home" class="mobile-link flex items-center gap-3 py-3 px-4 rounded-xl text-stone-600 hover:text-indigo-600 hover:bg-indigo-50/50 font-medium transition-all">
+            <!-- Inline SVG Home -->
+            <svg class="w-5 h-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            Home
+          </a>
+          <a href="#about" class="mobile-link flex items-center gap-3 py-3 px-4 rounded-xl text-stone-600 hover:text-indigo-600 hover:bg-indigo-50/50 font-medium transition-all">
+            <!-- Inline SVG User -->
+            <svg class="w-5 h-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            About
+          </a>
+          <a href="#experience" class="mobile-link flex items-center gap-3 py-3 px-4 rounded-xl text-stone-600 hover:text-indigo-600 hover:bg-indigo-50/50 font-medium transition-all">
+            <!-- Inline SVG Briefcase -->
+            <svg class="w-5 h-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            Experience
+          </a>
+          <a href="#skills" class="mobile-link flex items-center gap-3 py-3 px-4 rounded-xl text-stone-600 hover:text-indigo-600 hover:bg-indigo-50/50 font-medium transition-all">
+            <!-- Inline SVG CPU -->
+            <svg class="w-5 h-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M9 1v3"></path><path d="M15 1v3"></path><path d="M9 20v3"></path><path d="M15 20v3"></path><path d="M20 9h3"></path><path d="M20 15h3"></path><path d="M1 9h3"></path><path d="M1 15h3"></path></svg>
+            Skills
+          </a>
+          <a href="#projects" class="mobile-link flex items-center gap-3 py-3 px-4 rounded-xl text-stone-600 hover:text-indigo-600 hover:bg-indigo-50/50 font-medium transition-all">
+            <!-- Inline SVG Folder -->
+            <svg class="w-5 h-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path><circle cx="12" cy="13" r="2"></circle><path d="M12 15v3"></path></svg>
+            Projects
+          </a>
+          <a href="#why-hire" class="mobile-link flex items-center gap-3 py-3 px-4 rounded-xl text-stone-600 hover:text-indigo-600 hover:bg-indigo-50/50 font-medium transition-all">
+            <!-- Inline SVG Award -->
+            <svg class="w-5 h-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            Why Hire Me
+          </a>
+          <a href="#contact" class="mobile-link flex items-center gap-3 py-3 px-4 rounded-xl text-stone-600 hover:text-indigo-600 hover:bg-indigo-50/50 font-medium transition-all">
+            <!-- Inline SVG Mail -->
+            <svg class="w-5 h-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            Contact
+          </a>
+        </div>
+      </div>
+
+      <!-- Drawer Footer with Profile Links -->
+      <div class="border-t border-stone-200 pt-6">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="zaheer.jpg" alt="Muhammed Zaheer R" class="w-10 h-10 rounded-full object-cover border border-stone-300">
+          <div>
+            <h4 class="font-heading font-semibold text-sm">Muhammed Zaheer R</h4>
+            <p class="text-xs text-stone-500">Python Django Developer</p>
+          </div>
+        </div>
+        <div class="flex gap-3 justify-center">
+          <a href="https://github.com/zaheer-io/zaheer" target="_blank" class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center text-stone-600 hover:text-stone-900 transition-colors">
+            <!-- Inline SVG GitHub -->
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/muhammed-zaheer-r/" target="_blank" class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center text-indigo-600 hover:bg-indigo-50 transition-colors">
+            <!-- Inline SVG LinkedIn -->
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Hero Section with Glow Circles and Interactive Badges -->
+  <!-- Managed whitespace and padding for a visually balanced layout -->
+  <section id="home" class="relative py-20 lg:py-32 flex items-center overflow-hidden border-b border-stone-100">
+    <!-- Visual Gradient Glowing Background Elements -->
+    <div class="absolute top-1/4 left-1/10 w-96 h-96 rounded-full bg-indigo-200 opacity-20 blur-3xl animate-pulse-slow"></div>
+    <div class="absolute bottom-1/4 right-1/10 w-96 h-96 rounded-full bg-violet-200 opacity-20 blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+    <div class="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-amber-100 opacity-25 blur-3xl animate-pulse-slow" style="animation-delay: 4s;"></div>
+
+    <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Info Column -->
+      <div class="lg:col-span-7 flex flex-col items-start reveal reveal-left">
+        <!-- Interactive Greeting Tag -->
+        <span class="inline-flex items-center gap-1.5 py-1.5 px-3.5 bg-indigo-50 border border-indigo-100 rounded-full text-indigo-700 text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm shadow-indigo-50">
+          <span class="w-2 h-2 rounded-full bg-indigo-600 animate-ping"></span>
+          Available for Opportunities
+        </span>
+
+        <!-- Headline title -->
+        <h1 class="font-heading text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-stone-900 leading-none mb-6">
+          Hi, I'm <span class="text-gradient">Muhammed Zaheer R</span>
+        </h1>
+        
+        <!-- Animated subtitle slider -->
+        <h2 class="text-xl sm:text-2xl font-heading font-medium text-stone-700 mb-6 flex flex-wrap items-center gap-2">
+          <span>Specialized as a</span> 
+          <span class="py-1 px-3 bg-gradient-glow text-indigo-700 rounded-lg border border-indigo-100 font-semibold shadow-sm">
+            Python Django Developer
+          </span>
+        </h2>
+
+        <!-- Description Paragraph -->
+        <p class="text-base sm:text-lg text-stone-600 leading-relaxed mb-8 max-w-2xl font-light">
+          A passionate software engineer with a strong foundation in building highly scalable, user-centric backend systems and cross-platform mobile apps. From robust database-driven APIs with Django to beautiful interfaces in Flutter, I focus on performance, security, and elegant UI workflows.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-wrap gap-4 items-center">
+          <a href="#projects" class="btn-premium">
+            View Projects 
+            <svg class="w-4 h-4 ml-2 inline-block hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#contact" class="btn-secondary">
+            Get in touch 
+            <!-- Inline SVG Message Square -->
+            <svg class="w-4 h-4 ml-2 text-stone-400 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </a>
+        </div>
+
+        <!-- Social Media Animated Badges (Fully updated with inline SVGs to fix empty boxes) -->
+        <div class="flex items-center gap-4 mt-12 border-t border-stone-200/80 pt-8 w-full max-w-md">
+          <span class="text-xs uppercase font-bold tracking-widest text-stone-400">Connect:</span>
+          <div class="flex gap-3">
+            <a href="https://github.com/zaheer-io/zaheer" target="_blank" class="group flex items-center justify-center w-10 h-10 rounded-xl bg-white border border-stone-200 text-stone-500 hover:text-stone-900 hover:border-stone-400 hover:shadow-lg hover:shadow-stone-100 transition-all duration-300">
+              <!-- Bulletproof Inline SVG GitHub -->
+              <svg class="w-5 h-5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/muhammed-zaheer-r/" target="_blank" class="group flex items-center justify-center w-10 h-10 rounded-xl bg-white border border-stone-200 text-stone-500 hover:text-indigo-600 hover:border-indigo-200 hover:shadow-lg hover:shadow-indigo-50 transition-all duration-300">
+              <!-- Bulletproof Inline SVG LinkedIn -->
+              <svg class="w-5 h-5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Graphic Column (Premium profile picture crop with styling - floating labels removed as requested) -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end reveal reveal-right relative py-12">
+        <div class="relative">
+          
+          <!-- Background accent rings -->
+          <div class="absolute -inset-4 border border-indigo-200/40 rounded-full animate-pulse-slow"></div>
+          <div class="absolute -inset-8 border border-stone-200/40 rounded-full animate-pulse-slow" style="animation-delay: 3s;"></div>
+
+          <!-- Main circular profile -->
+          <div class="profile-image-container">
+            <img src="zaheer.jpg" alt="Muhammed Zaheer R" class="shadow-inner animate-float-1" loading="eager">
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. About Section with Recruiter Spacing -->
+  <section id="about" class="py-24 bg-stone-50 relative overflow-hidden border-t border-stone-200/50">
+    <div class="container mx-auto px-6 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center mb-20 reveal reveal-up">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-indigo-600 mb-3">About Me</h2>
+        <p class="font-heading text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+          Passionate about building scalable digital solutions
+        </p>
+        <div class="w-16 h-1 bg-gradient-premium mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Main Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch max-w-6xl mx-auto">
+        <!-- Story Column (Fixed double asterisk bug. Standard strong tags used for premium typography) -->
+        <div class="lg:col-span-7 flex flex-col justify-between reveal reveal-left">
+          <div class="space-y-6">
+            <h3 class="font-heading text-2xl font-bold text-stone-900">
+              The sweet spot between high-end systems and fluid animations
+            </h3>
+            
+            <p class="text-stone-600 leading-relaxed font-light">
+              I hold a <strong class="font-semibold text-stone-900">Diploma in Computer Engineering</strong>, which established my core fundamentals in computer systems, algorithms, and application architecture. Over the past few years, I’ve specialized heavily in building web architectures with <strong class="font-semibold text-stone-900">Python Django</strong> and cross-platform frontend environments with <strong class="font-semibold text-stone-900">Flutter</strong>.
+            </p>
+
+            <p class="text-stone-600 leading-relaxed font-light">
+              My core philosophy focuses on building real-time applications, productivity tools, and secure ecommerce environments that offer beautiful, fluid visual feedback. I pride myself on being an active self-learner, comfortable diving into databases, styling web interfaces, or implementing complex role-based payment checkouts.
+            </p>
+          </div>
+
+          <!-- Highlight Key Features -->
+          <div class="grid grid-cols-2 gap-4 mt-8 pt-8 border-t border-stone-200">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 shadow-sm border border-indigo-100 shrink-0">
+                <!-- Inline SVG Shield Check -->
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-heading font-semibold text-sm text-stone-900">Security Driven</h4>
+                <p class="text-xs text-stone-500">Robust auth & roles</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 shadow-sm border border-indigo-100 shrink-0">
+                <!-- Inline SVG Zap -->
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+              <div>
+                <h4 class="font-heading font-semibold text-sm text-stone-900">Performance First</h4>
+                <p class="text-xs text-stone-500">Fast caching & SQLite</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Info / Timeline Column -->
+        <div class="lg:col-span-5 flex items-stretch reveal reveal-right delay-200">
+          <div class="glass-card p-8 bg-white/60 w-full flex flex-col justify-between relative overflow-hidden border border-stone-200">
+            
+            <!-- Graphic background blob inside card -->
+            <div class="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-indigo-50 opacity-40 blur-2xl"></div>
+            
+            <div class="relative z-10">
+              <h3 class="font-heading text-lg font-bold text-stone-800 uppercase tracking-widest text-stone-400 mb-6 flex items-center gap-2">
+                <!-- Inline SVG Graduation Cap -->
+                <svg class="w-5 h-5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M6 18.8v-4L2 13v6a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1Z"></path><path d="M21.5 12v6"></path></svg>
+                Education
+              </h3>
+
+              <!-- Education Timeline Timeline -->
+              <div class="space-y-6">
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <span class="text-xs font-bold text-indigo-600 tracking-wide uppercase">University Coursework</span>
+                  <h4 class="font-heading font-bold text-stone-800 mt-1">Diploma in Computer Engineering</h4>
+                  <p class="text-sm text-stone-500 mt-1">Foundational engineering structure, networking architecture, data structures, and database principles.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quote/Mindset -->
+            <div class="border-t border-stone-100 pt-6 mt-8 relative z-10">
+              <blockquote class="italic text-stone-500 text-sm font-light">
+                "Learning isn't just about accumulating facts. It's about developing the problem-solving systems to build anything from scratch."
+              </blockquote>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. Work Experience Section -->
+  <section id="experience" class="py-24 bg-stone-100 relative overflow-hidden border-t border-stone-200/50">
+    <!-- Visual background patterns -->
+    <div class="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-violet-100 opacity-20 blur-3xl"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center mb-20 reveal reveal-up">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-indigo-600 mb-3">Work History</h2>
+        <p class="font-heading text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+          Professional Industry Experience
+        </p>
+        <div class="w-16 h-1 bg-gradient-premium mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Experience Single Container (Professional Card Layout) -->
+      <div class="max-w-4xl mx-auto reveal reveal-up delay-200">
+        <div class="glass-card p-8 sm:p-12 bg-white border border-stone-200 relative overflow-hidden group">
+          <!-- Subtle top gradient strip -->
+          <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-premium"></div>
+
+          <!-- Card Header layout -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm shrink-0">
+                <!-- Inline SVG Award -->
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+              </div>
+              <div>
+                <span class="text-xs font-semibold py-1 px-2.5 bg-indigo-50 text-indigo-700 rounded-md border border-indigo-100">7 Months Internship</span>
+                <h3 class="font-heading font-extrabold text-xl sm:text-2xl text-stone-900 mt-2">Python Django Intern</h3>
+                <p class="text-sm font-semibold text-stone-600 mt-0.5">Luminar Technolab, Kochi</p>
+              </div>
+            </div>
+            
+            <div class="text-left md:text-right">
+              <div class="text-sm font-bold text-stone-700 flex items-center gap-1.5 md:justify-end">
+                <!-- Inline SVG Calendar -->
+                <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+                Full Term Internship
+              </div>
+              <span class="text-xs text-stone-400 mt-0.5 block">Kochi, Kerala (On-site)</span>
+            </div>
+          </div>
+
+          <!-- Description Bullet Points with Custom SVGs -->
+          <div class="space-y-4 text-stone-600 font-light leading-relaxed">
+            <p class="mb-4 font-normal text-stone-700">
+              During my internship at Luminar Technolab, I developed full-stack web applications, strengthening my core web design workflows and database integrations:
+            </p>
+
+            <div class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-100">
+                <!-- Inline SVG Check -->
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <p class="text-sm"><strong class="font-medium text-stone-800">Auth Systems & Dashboards:</strong> Designed robust user registration workflows, custom login templates, role-based admin panels, and full CRUD dashboard systems.</p>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-100">
+                <!-- Inline SVG Check -->
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <p class="text-sm"><strong class="font-medium text-stone-800">Razorpay Integrations:</strong> Implemented secure external checkout gateways and mock verification workflows on Django view controller structures.</p>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-100">
+                <!-- Inline SVG Check -->
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <p class="text-sm"><strong class="font-medium text-stone-800">Database & ORM Management:</strong> Worked with SQLite and Django Object-Relational Mapping (ORM) to handle complex model queries, prefetch schemas, and data relationships efficiently.</p>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-100">
+                <!-- Inline SVG Check -->
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <p class="text-sm"><strong class="font-medium text-stone-800">Responsive UI Integration:</strong> Built interactive page layouts using HTML, CSS, JavaScript, and CSS grid structures with pixel-perfect responsive behaviors.</p>
+            </div>
+          </div>
+
+          <!-- Tech Badges Used during job -->
+          <div class="mt-8 pt-8 border-t border-stone-100 flex flex-wrap gap-2">
+            <span class="text-xs font-bold text-stone-400 uppercase mr-2 mt-1">Tech Applied:</span>
+            <span class="skill-card-badge">Python</span>
+            <span class="skill-card-badge">Django 5.x</span>
+            <span class="skill-card-badge">SQLite</span>
+            <span class="skill-card-badge">Razorpay API</span>
+            <span class="skill-card-badge">Django ORM</span>
+            <span class="skill-card-badge">Responsive Grid</span>
+            <span class="skill-card-badge">Git & VC</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. Skills & Tech Stack Section -->
+  <section id="skills" class="py-24 bg-stone-50 relative overflow-hidden border-t border-stone-200/50">
+    <div class="container mx-auto px-6 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center mb-20 reveal reveal-up">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-indigo-600 mb-3">Skills</h2>
+        <p class="font-heading text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+          My Technical Expertise
+        </p>
+        <div class="w-16 h-1 bg-gradient-premium mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Skills Grid Categories -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        
+        <!-- Category 1: Backend -->
+        <div class="glass-card p-6 bg-white hover:border-indigo-200 flex flex-col justify-between reveal reveal-up">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm mb-6">
+              <!-- Inline SVG Server -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect><rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect><line x1="6" x2="6" y1="6" y2="6"></line><line x1="6" x2="6" y1="18" y2="18"></line></svg>
+            </div>
+            <h3 class="font-heading font-extrabold text-lg text-stone-900 mb-4">Backend Development</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-card-badge">Python</span>
+              <span class="skill-card-badge">Django</span>
+              <span class="skill-card-badge">Django ORM</span>
+              <span class="skill-card-badge">REST API Basics</span>
+              <span class="skill-card-badge">SQLite</span>
+            </div>
+          </div>
+          <div class="text-xs text-stone-400 font-bold uppercase tracking-wider mt-8 border-t border-stone-100 pt-4">Primary Stack</div>
+        </div>
+
+        <!-- Category 2: Frontend -->
+        <div class="glass-card p-6 bg-white hover:border-indigo-200 flex flex-col justify-between reveal reveal-up delay-100">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm mb-6">
+              <!-- Inline SVG Sliders -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="4" y1="21" y2="14"></line><line x1="4" x2="4" y1="10" y2="3"></line><line x1="12" x2="12" y1="21" y2="12"></line><line x1="12" x2="12" y1="8" y2="3"></line><line x1="20" x2="20" y1="21" y2="16"></line><line x1="20" x2="20" y1="12" y2="3"></line><line x1="2" x2="6" y1="14" y2="14"></line><line x1="10" x2="14" y1="8" y2="8"></line><line x1="18" x2="22" y1="16" y2="16"></line></svg>
+            </div>
+            <h3 class="font-heading font-extrabold text-lg text-stone-900 mb-4">Frontend Development</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-card-badge">HTML5</span>
+              <span class="skill-card-badge">CSS3</span>
+              <span class="skill-card-badge">JavaScript</span>
+              <span class="skill-card-badge">Flutter (Mobile)</span>
+              <span class="skill-card-badge">Responsive UI</span>
+            </div>
+          </div>
+          <div class="text-xs text-stone-400 font-bold uppercase tracking-wider mt-8 border-t border-stone-100 pt-4">Cross Platform</div>
+        </div>
+
+        <!-- Category 3: Tools & Platforms -->
+        <div class="glass-card p-6 bg-white hover:border-indigo-200 flex flex-col justify-between reveal reveal-up delay-200">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm mb-6">
+              <!-- Inline SVG CPU -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M9 1v3"></path><path d="M15 1v3"></path><path d="M9 20v3"></path><path d="M15 20v3"></path><path d="M20 9h3"></path><path d="M20 15h3"></path><path d="M1 9h3"></path><path d="M1 15h3"></path></svg>
+            </div>
+            <h3 class="font-heading font-extrabold text-lg text-stone-900 mb-4">Tools & Platforms</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-card-badge">Git & VC</span>
+              <span class="skill-card-badge">GitHub</span>
+              <span class="skill-card-badge">Razorpay API</span>
+              <span class="skill-card-badge">VS Code</span>
+              <span class="skill-card-badge">Supabase</span>
+            </div>
+          </div>
+          <div class="text-xs text-stone-400 font-bold uppercase tracking-wider mt-8 border-t border-stone-100 pt-4">Utilities</div>
+        </div>
+
+        <!-- Category 4: Other Skills -->
+        <div class="glass-card p-6 bg-white hover:border-indigo-200 flex flex-col justify-between reveal reveal-up delay-300">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm mb-6">
+              <!-- Inline SVG Shield Check -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+            </div>
+            <h3 class="font-heading font-extrabold text-lg text-stone-900 mb-4">Specialized Features</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-card-badge">Auth Systems</span>
+              <span class="skill-card-badge">Admin Dashboards</span>
+              <span class="skill-card-badge">Payment Gateway</span>
+              <span class="skill-card-badge">Role-Based Access</span>
+              <span class="skill-card-badge">CRUD Engine</span>
+            </div>
+          </div>
+          <div class="text-xs text-stone-400 font-bold uppercase tracking-wider mt-8 border-t border-stone-100 pt-4">Architecture</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. Featured Projects Showcase Section (Fully updated with new premium projects) -->
+  <section id="projects" class="py-24 bg-stone-100 relative overflow-hidden border-t border-stone-200/50">
+    <div class="container mx-auto px-6 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center mb-16 reveal reveal-up">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-indigo-600 mb-3">Portfolio</h2>
+        <p class="font-heading text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+          Featured &amp; AI-Enhanced Applications
+        </p>
+        <div class="w-16 h-1 bg-gradient-premium mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Categories Filter bar -->
+      <div class="flex flex-wrap gap-3 justify-center mb-16 reveal reveal-up delay-100">
+        <button data-filter="all" class="filter-btn py-2 px-5 rounded-full text-sm font-semibold bg-indigo-600 text-white shadow-md shadow-indigo-200 transition-all duration-300">
+          All Projects
+        </button>
+        <button data-filter="django" class="filter-btn py-2 px-5 rounded-full text-sm font-semibold bg-white text-stone-600 hover:bg-stone-50 border border-stone-200 transition-all duration-300">
+          Python Django
+        </button>
+        <button data-filter="supabase" class="filter-btn py-2 px-5 rounded-full text-sm font-semibold bg-white text-stone-600 hover:bg-stone-50 border border-stone-200 transition-all duration-300">
+          Next.js &amp; Supabase
+        </button>
+        <button data-filter="flutter" class="filter-btn py-2 px-5 rounded-full text-sm font-semibold bg-white text-stone-600 hover:bg-stone-50 border border-stone-200 transition-all duration-300">
+          Flutter Mobile
+        </button>
+      </div>
+
+      <!-- Project Cards Grid (Showing Layani, Voxa, CarePoint, Ecommerce, Quick Sell) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
+        <!-- Project 3: CarePoint (Healthcare Management) -->
+        <div class="project-card-container reveal reveal-up relative delay-150" data-category="django">
+          <div class="glass-card bg-white border border-stone-200 overflow-hidden flex flex-col justify-between h-full hover:shadow-xl">
+            <div>
+              <!-- Visual Mock Header background -->
+              <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center p-6 text-white relative">
+                <div class="absolute inset-0 bg-black/10 opacity-30"></div>
+                <div class="relative text-center">
+                  <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mx-auto mb-3 shadow">
+                    <!-- Inline SVG Heartbeat -->
+                    <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M3.22 12H9.5l1.5-5 2 10 1.5-5h4.28"></path></svg>
+                  </div>
+                  <h4 class="font-heading font-extrabold text-xl tracking-tight">CarePoint</h4>
+                  <p class="text-xs text-indigo-100 mt-1">Healthcare Appointment Suite</p>
+                </div>
+                <!-- Status tag -->
+                <span class="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider py-1 px-2.5 rounded-full border border-white/10">Major Project</span>
+              </div>
+
+              <!-- Content section -->
+              <div class="p-6">
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 py-0.5 px-2 rounded border border-indigo-100">Django 5.x</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-violet-600 bg-violet-50 py-0.5 px-2 rounded border border-violet-100">Razorpay</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-amber-600 bg-amber-50 py-0.5 px-2 rounded border border-amber-100">SQLite</span>
+                </div>
+
+                <h3 class="font-heading font-bold text-xl text-stone-900 mb-3">CarePoint Hospital Management</h3>
+                <p class="text-stone-600 text-sm leading-relaxed font-light mb-4">
+                  A high-end, role-based healthcare booking platform. Built custom appointment coordination pipelines allowing patient scheduling, doctor dynamic management workflows, and secure payment integrations.
+                </p>
+
+                <ul class="space-y-2 mb-6">
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-indigo-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Role-based Patients / Doctors / Admin auth
+                  </li>
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-indigo-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Secure Razorpay payment verification
+                  </li>
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-indigo-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Doctor approval and dashboard panels
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card Actions -->
+            <div class="p-6 pt-0 border-t border-stone-100 flex items-center justify-between">
+              <a href="https://github.com/zaheer-io/care-point" target="_blank" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-1.5">
+                <!-- Inline SVG GitHub -->
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                View Repository
+              </a>
+              <span class="text-xs text-stone-400 flex items-center gap-1">
+                <!-- Inline SVG Activity -->
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                Hospital CRM
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Ecommerce Django Project -->
+        <div class="project-card-container reveal reveal-up relative delay-200" data-category="django">
+          <div class="glass-card bg-white border border-stone-200 overflow-hidden flex flex-col justify-between h-full hover:shadow-xl">
+            <div>
+              <!-- Visual Mock Header background -->
+              <div class="h-48 bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center p-6 text-white relative">
+                <div class="absolute inset-0 bg-black/10 opacity-30"></div>
+                <div class="relative text-center">
+                  <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mx-auto mb-3 shadow">
+                    <!-- Inline SVG Shopping Bag -->
+                    <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><line x1="3" x2="21" y1="6" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                  </div>
+                  <h4 class="font-heading font-extrabold text-xl tracking-tight">E-Shop</h4>
+                  <p class="text-xs text-amber-500 bg-white px-2 py-0.5 rounded-full inline-block mt-1 font-bold">Django E-Commerce</p>
+                </div>
+              </div>
+
+              <!-- Content section -->
+              <div class="p-6">
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 py-0.5 px-2 rounded border border-indigo-100">Django</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-amber-600 bg-amber-50 py-0.5 px-2 rounded border border-amber-100">SQLite</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-stone-600 bg-stone-100 py-0.5 px-2 rounded border border-stone-200">Crispy Forms</span>
+                </div>
+
+                <h3 class="font-heading font-bold text-xl text-stone-900 mb-3">Django Ecommerce App</h3>
+                <p class="text-stone-600 text-sm leading-relaxed font-light mb-4">
+                  A high-end web store solution featuring modern product browsing structures, categorized product listings, checkout flows, and automated inventory sync.
+                </p>
+
+                <ul class="space-y-2 mb-6">
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-amber-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Category browsing &amp; deep product search
+                  </li>
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-amber-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Persistent shopping cart state &amp; checkout flow
+                  </li>
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-amber-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Admin product and stock management views
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card Actions -->
+            <div class="p-6 pt-0 border-t border-stone-100 flex items-center justify-between">
+              <a href="https://github.com/zaheer-io/Ecommerce_Project" target="_blank" class="text-xs font-bold text-amber-600 hover:text-amber-800 flex items-center gap-1.5">
+                <!-- Inline SVG GitHub -->
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                View Repository
+              </a>
+              <span class="text-xs text-stone-400 flex items-center gap-1">
+                <!-- Inline SVG Globe -->
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" x2="22" y1="12" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                Web App
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Quick Sell (Django Marketplace) -->
+        <div class="project-card-container reveal reveal-up relative delay-300" data-category="django">
+          <div class="glass-card bg-white border border-stone-200 overflow-hidden flex flex-col justify-between h-full hover:shadow-xl">
+            <div>
+              <!-- Visual Mock Header background -->
+              <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center p-6 text-white relative">
+                <div class="absolute inset-0 bg-black/10 opacity-30"></div>
+                <div class="relative text-center">
+                  <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mx-auto mb-3 shadow">
+                    <!-- Inline SVG Storefront -->
+                    <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path><path d="M2 7h20"></path></svg>
+                  </div>
+                  <h4 class="font-heading font-extrabold text-xl tracking-tight">Quick Sell</h4>
+                  <p class="text-xs text-teal-100 mt-1">Multi-Vendor Marketplace</p>
+                </div>
+              </div>
+
+              <!-- Content section -->
+              <div class="p-6">
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 py-0.5 px-2 rounded border border-indigo-100">Python</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 py-0.5 px-2 rounded border border-emerald-100">Django ORM</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-violet-600 bg-violet-50 py-0.5 px-2 rounded border border-violet-100">Razorpay</span>
+                </div>
+
+                <h3 class="font-heading font-bold text-xl text-stone-900 mb-3">Quick Sell Marketplace</h3>
+                <p class="text-stone-600 text-sm leading-relaxed font-light mb-4">
+                  A dynamic multi-vendor marketplace app enabling quick item listings, individual seller profile controls, global search operations, and secure transactional integrations.
+                </p>
+
+                <ul class="space-y-2 mb-6">
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Individual Seller profile verification
+                  </li>
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Admin analytics overview insights dashboard
+                  </li>
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Purchase, sales history &amp; tracking flows
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card Actions -->
+            <div class="p-6 pt-0 border-t border-stone-100 flex items-center justify-between">
+              <a href="https://github.com/zaheer-io/Quick-Sell" target="_blank" class="text-xs font-bold text-emerald-600 hover:text-emerald-800 flex items-center gap-1.5">
+                <!-- Inline SVG GitHub -->
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                View Repository
+              </a>
+              <span class="text-xs text-stone-400 flex items-center gap-1">
+                <!-- Inline SVG Tag -->
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.46.94 3.4 0l6.59-6.59c.94-.94.94-2.46 0-3.4L12 2Z"></path><line x1="7" x2="7.01" y1="7" y2="7"></line></svg>
+                Marketplace
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW Project 1: Layani (Tea & Snacks PWA - Next.js + Supabase) -->
+        <div class="project-card-container reveal reveal-up relative" data-category="supabase">
+          <div class="glass-card bg-white border border-stone-200 overflow-hidden flex flex-col justify-between h-full hover:shadow-xl">
+            <div>
+              <!-- Visual Header -->
+              <div class="h-48 bg-gradient-to-br from-emerald-600 to-teal-500 flex items-center justify-center p-6 text-white relative">
+                <div class="absolute inset-0 bg-black/10 opacity-30"></div>
+                <div class="relative text-center">
+                  <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mx-auto mb-3 shadow">
+                    <!-- Inline SVG Tea/Coffee Cup -->
+                    <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path><line x1="6" x2="6" y1="2" y2="4"></line><line x1="10" x2="10" y1="2" y2="4"></line><line x1="14" x2="14" y1="2" y2="4"></line></svg>
+                  </div>
+                  <h4 class="font-heading font-extrabold text-xl tracking-tight">🍵 Layani</h4>
+                  <p class="text-xs text-emerald-100 mt-1">Premium PWA Tea Booking</p>
+                </div>
+                <!-- Status tag -->
+                <span class="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider py-1 px-2.5 rounded-full border border-white/10">Mobile PWA</span>
+              </div>
+
+              <!-- Content section -->
+              <div class="p-6">
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 py-0.5 px-2 rounded border border-emerald-100">Next.js 14+</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-teal-600 bg-teal-50 py-0.5 px-2 rounded border border-teal-100">Supabase</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 py-0.5 px-2 rounded border border-indigo-100">PWA Ready</span>
+                </div>
+
+                <h3 class="font-heading font-bold text-xl text-stone-900 mb-3">Layani tea &amp; snacks booking PWA</h3>
+                <p class="text-stone-600 text-sm leading-relaxed font-light mb-4">
+                  A high-end, mobile-first booking Progressive Web App. Implements real-time product catalogs, mobile bottom bars, automated loyalty rewards, and zero-password phone onboarding.
+                </p>
+
+                <ul class="space-y-2 mb-6">
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Mobile app installable on iOS &amp; Android
+                  </li>
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    QR-based loyalty &amp; automated points tracking
+                  </li>
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Real-time Supabase sync shopkeeper dashboard
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card Actions -->
+            <div class="p-6 pt-0 border-t border-stone-100 flex items-center justify-between">
+              <a href="https://github.com/zaheer-io/Layani-Booking" target="_blank" class="text-xs font-bold text-emerald-600 hover:text-emerald-800 flex items-center gap-1.5">
+                <!-- Inline SVG GitHub -->
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                View Repository
+              </a>
+              <span class="text-xs text-stone-400 flex items-center gap-1">
+                <!-- Inline SVG Activity -->
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                SaaS PWA
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW Project 2: Voxa (Music Streaming - Flutter + Jamendo API) -->
+        <div class="project-card-container reveal reveal-up relative delay-100" data-category="flutter">
+          <div class="glass-card bg-white border border-stone-200 overflow-hidden flex flex-col justify-between h-full hover:shadow-xl">
+            <div>
+              <!-- Visual Header -->
+              <div class="h-48 bg-gradient-to-br from-indigo-900 to-indigo-950 flex items-center justify-center p-6 text-white relative">
+                <div class="absolute inset-0 bg-black/10 opacity-30"></div>
+                <div class="relative text-center">
+                  <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center mx-auto mb-3 shadow">
+                    <!-- Inline SVG Music -->
+                    <svg class="w-8 h-8 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                  </div>
+                  <h4 class="font-heading font-extrabold text-xl tracking-tight">Voxa</h4>
+                  <p class="text-xs text-indigo-300 mt-1">Flutter Jamendo Audio Player</p>
+                </div>
+                <!-- Status tag -->
+                <span class="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider py-1 px-2.5 rounded-full border border-white/10">Mobile App</span>
+              </div>
+
+              <!-- Content section -->
+              <div class="p-6">
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 py-0.5 px-2 rounded border border-indigo-100">Flutter</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 py-0.5 px-2 rounded border border-blue-100">Riverpod</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-purple-600 bg-purple-50 py-0.5 px-2 rounded border border-purple-100">Just Audio</span>
+                </div>
+
+                <h3 class="font-heading font-bold text-xl text-stone-900 mb-3">Voxa Jamendo Music App</h3>
+                <p class="text-stone-600 text-sm leading-relaxed font-light mb-4">
+                  A high-end Spotify-inspired music player built in stable Flutter. Powered by the public Jamendo API to query tracks, manage playback states, render wave progress indicators, and display lyrics overlays.
+                </p>
+
+                <ul class="space-y-2 mb-6">
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-indigo-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Swipeable mini-player &amp; full music panel
+                  </li>
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-indigo-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Riverpod state tracking and pagination
+                  </li>
+                  <li class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+                    <!-- Inline SVG Check -->
+                    <svg class="w-3.5 h-3.5 text-indigo-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Synced lyrics preview &amp; custom suggestions queue
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card Actions -->
+            <div class="p-6 pt-0 border-t border-stone-100 flex items-center justify-between">
+              <a href="https://github.com/zaheer-io/Voxa" target="_blank" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-1.5">
+                <!-- Inline SVG GitHub -->
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                View Repository
+              </a>
+              <span class="text-xs text-stone-400 flex items-center gap-1">
+                <!-- Inline SVG Activity -->
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                Mobile Player
+              </span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. Why Hire Me Section -->
+  <section id="why-hire" class="py-24 bg-stone-50 relative overflow-hidden border-t border-stone-200/50">
+    <div class="container mx-auto px-6 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center mb-20 reveal reveal-up">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-indigo-600 mb-3">Why Hire Me</h2>
+        <p class="font-heading text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+          What I Bring to Your Team
+        </p>
+        <div class="w-16 h-1 bg-gradient-premium mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Why Hire Me Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        
+        <!-- Factor 1: Fast Learner -->
+        <div class="glass-card p-8 bg-white/70 hover:border-indigo-200 flex flex-col items-start reveal reveal-up">
+          <div class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm mb-6">
+            <!-- Inline SVG Rocket -->
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 3.38-2 4.43 0 .42.34.76.76.76 1.05 0 3.17-.5 4.43-2"></path><path d="M12 10c-1.74 0-3.41-.81-4.5-2.28L6.44 6.44C5.12 5.12 5.12 3 6.44 1.68c1.32-1.32 3.44-1.32 4.76 0L12.28 2.5C13.74 3.59 14.55 5.26 14.55 7"></path><path d="M11.5 11.5 17 6"></path><path d="M8.5 14.5 14 9"></path><path d="M18.8 8.4C22.2 11.8 23 17 21.6 20.2l-3-3"></path><path d="M8.4 18.8C11.8 22.2 17 23 20.2 21.6l-3-3"></path></svg>
+          </div>
+          <h3 class="font-heading font-extrabold text-lg text-stone-900 mb-3">Fast Adaptive Learner</h3>
+          <p class="text-stone-600 text-sm font-light leading-relaxed">
+            I adapt quickly to new engineering ecosystems. Guided by a strong baseline in Computer Engineering, I pick up libraries, platforms, and methodologies swiftly.
+          </p>
+        </div>
+
+        <!-- Factor 2: Solid Backend -->
+        <div class="glass-card p-8 bg-white/70 hover:border-indigo-200 flex flex-col items-start reveal reveal-up delay-150">
+          <div class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm mb-6">
+            <!-- Inline SVG Database -->
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>
+          </div>
+          <h3 class="font-heading font-extrabold text-lg text-stone-900 mb-3">Strong Backend Core</h3>
+          <p class="text-stone-600 text-sm font-light leading-relaxed">
+            My core strength is Django development. I understand robust database normalization, clean ORM queries, authentication protocols, and payment flows.
+          </p>
+        </div>
+
+        <!-- Factor 3: Real-World Intern experience -->
+        <div class="glass-card p-8 bg-white/70 hover:border-indigo-200 flex flex-col items-start reveal reveal-up delay-300">
+          <div class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm mb-6">
+            <!-- Inline SVG Briefcase -->
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </div>
+          <h3 class="font-heading font-extrabold text-lg text-stone-900 mb-3">Real Internship Proof</h3>
+          <p class="text-stone-600 text-sm font-light leading-relaxed">
+            My 7-month on-site internship gave me real-world development experience, teaching me how to integrate secure features and collaborate inside web workflows.
+          </p>
+        </div>
+
+        <!-- Factor 4: Design Aesthetics -->
+        <div class="glass-card p-8 bg-white/70 hover:border-indigo-200 flex flex-col items-start reveal reveal-up">
+          <div class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm mb-6">
+            <!-- Inline SVG Sparkles -->
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+          </div>
+          <h3 class="font-heading font-extrabold text-lg text-stone-900 mb-3">Clean Visual Sensibility</h3>
+          <p class="text-stone-600 text-sm font-light leading-relaxed">
+            I don't just build server engines; I align layouts to deliver fluid user experiences. I understand mobile layout scaling, clean spacing, and modern design tokens.
+          </p>
+        </div>
+
+        <!-- Factor 5: Scalable Architecture -->
+        <div class="glass-card p-8 bg-white/70 hover:border-indigo-200 flex flex-col items-start reveal reveal-up delay-150">
+          <div class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm mb-6">
+            <!-- Inline SVG Git Branch -->
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
+          </div>
+          <h3 class="font-heading font-extrabold text-lg text-stone-900 mb-3">Scalable Architecture</h3>
+          <p class="text-stone-600 text-sm font-light leading-relaxed">
+            I build modules using reusable structures and clean models. Maintaining clean code ensures that features can scale as products grow.
+          </p>
+        </div>
+
+        <!-- Factor 6: Problem Solver -->
+        <div class="glass-card p-8 bg-white/70 hover:border-indigo-200 flex flex-col items-start reveal reveal-up delay-300">
+          <div class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm mb-6">
+            <!-- Inline SVG CPU -->
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M9 1v3"></path><path d="M15 1v3"></path><path d="M9 20v3"></path><path d="M15 20v3"></path><path d="M20 9h3"></path><path d="M20 15h3"></path><path d="M1 9h3"></path><path d="M1 15h3"></path></svg>
+          </div>
+          <h3 class="font-heading font-extrabold text-lg text-stone-900 mb-3">Self-Reliant Problem Solver</h3>
+          <p class="text-stone-600 text-sm font-light leading-relaxed">
+            I have deep debugging capabilities. When integrating external APIs, handling ORM errors, or setting up multi-role routers, I solve problems efficiently.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. Contact Section with Glassmorphism Form & Direct Profile Image Details -->
+  <section id="contact" class="py-24 bg-stone-100 relative overflow-hidden border-t border-stone-200/50">
+    <!-- Visual background patterns -->
+    <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-indigo-100 opacity-25 blur-3xl"></div>
+    <div class="absolute top-0 left-0 w-96 h-96 rounded-full bg-amber-50 opacity-20 blur-3xl"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center mb-20 reveal reveal-up">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-indigo-600 mb-3">Contact</h2>
+        <p class="font-heading text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+          Let's Build Something Premium Together
+        </p>
+        <div class="w-16 h-1 bg-gradient-premium mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Contact Layout Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto items-stretch">
+        
+        <!-- Info Cards column (Fixed icons to SVGs and added beautiful developer profile image card) -->
+        <div class="lg:col-span-5 flex flex-col justify-between reveal reveal-left">
+          <div class="space-y-6">
+            <h3 class="font-heading text-2xl font-bold text-stone-900">
+              Get in touch directly with Muhammed
+            </h3>
+            <p class="text-stone-600 font-light leading-relaxed">
+              If you have an opening, internship project, startup collaboration, or simply want to review my code workflows, don't hesitate to reach out! I will review and respond promptly.
+            </p>
+          </div>
+
+          <!-- Quick Info Cards -->
+          <div class="space-y-4 my-8">
+            <!-- Premium Profile Card with Picture -->
+            <div class="glass-card p-5 bg-white flex items-center gap-4 hover:border-indigo-100 border border-stone-200 shadow-sm">
+              <img src="zaheer.jpg" alt="Muhammed Zaheer R" class="w-14 h-14 rounded-2xl object-cover shadow-sm border border-stone-200/50 shrink-0">
+              <div>
+                <h4 class="font-heading font-extrabold text-base text-stone-950">Muhammed Zaheer R</h4>
+                <p class="text-xs text-indigo-600 font-bold tracking-wide uppercase mt-0.5">Django &amp; Flutter Engineer</p>
+              </div>
+            </div>
+
+            <!-- Email (Updated with muhd.zaheer.r@gmail.com) -->
+            <div class="glass-card p-5 bg-white flex items-center gap-4 hover:border-indigo-100 border border-stone-200">
+              <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 shadow-sm border border-indigo-100 shrink-0">
+                <!-- Inline SVG Mail -->
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              </div>
+              <div class="overflow-hidden">
+                <h4 class="font-heading font-semibold text-xs text-stone-400 uppercase tracking-wider">Email Me</h4>
+                <a href="mailto:muhd.zaheer.r@gmail.com" class="text-stone-800 font-medium text-sm sm:text-base hover:text-indigo-600 transition-colors block truncate">muhd.zaheer.r@gmail.com</a>
+              </div>
+            </div>
+
+            <!-- Profile Links Grid (SVGs added to fix empty boxes) -->
+            <div class="grid grid-cols-2 gap-4">
+              <!-- Github -->
+              <a href="https://github.com/zaheer-io/zaheer" target="_blank" class="glass-card p-5 bg-white flex flex-col justify-between items-start gap-4 hover:border-stone-400 border border-stone-200 group">
+                <div class="w-10 h-10 rounded-xl bg-stone-50 flex items-center justify-center text-stone-600 group-hover:scale-105 transition-transform border border-stone-100 shadow-sm shrink-0">
+                  <!-- Inline SVG GitHub -->
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                </div>
+                <div>
+                  <h4 class="font-heading font-semibold text-[10px] text-stone-400 uppercase tracking-widest">Github Profile</h4>
+                  <span class="text-stone-800 font-bold text-xs group-hover:text-indigo-600 transition-colors mt-1 block">zaheer-io <svg class="w-3.5 h-3.5 inline text-stone-400 group-hover:text-indigo-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" x2="17" y1="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+                </div>
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://www.linkedin.com/in/muhammed-zaheer-r/" target="_blank" class="glass-card p-5 bg-white flex flex-col justify-between items-start gap-4 hover:border-indigo-200 border border-stone-200 group">
+                <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:scale-105 transition-transform border border-indigo-100 shadow-sm shrink-0">
+                  <!-- Inline SVG LinkedIn -->
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </div>
+                <div>
+                  <h4 class="font-heading font-semibold text-[10px] text-stone-400 uppercase tracking-widest">LinkedIn</h4>
+                  <span class="text-stone-800 font-bold text-xs group-hover:text-indigo-600 transition-colors mt-1 block">Muhammed Z. <svg class="w-3.5 h-3.5 inline text-stone-400 group-hover:text-indigo-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" x2="17" y1="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Bottom micro detail -->
+          <div class="text-xs text-stone-400 font-medium">
+            <!-- Inline SVG Shield Check -->
+            <svg class="w-4 h-4 inline mr-1 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg> 
+            Verified direct developer contact channels.
+          </div>
+        </div>
+
+        <!-- Form column -->
+        <div class="lg:col-span-7 reveal reveal-right delay-200">
+          <div class="glass-card p-8 sm:p-10 bg-white border border-stone-200">
+            <h3 class="font-heading font-bold text-xl text-stone-900 mb-6 flex items-center gap-2">
+              <!-- Inline SVG Message Square -->
+              <svg class="w-5 h-5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              Send a Message
+            </h3>
+
+            <!-- Client Validate Contact Form -->
+            <form id="contact-form" class="space-y-6">
+              <!-- Name Input (Placeholder updated as 'Arun') -->
+              <div>
+                <label for="contact-name" class="block text-xs font-bold text-stone-500 uppercase tracking-wider mb-2">Your Full Name</label>
+                <input type="text" id="contact-name" placeholder="Arun" required
+                  class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-800 focus:outline-none focus:border-indigo-500 focus:bg-white transition-colors">
+              </div>
+
+              <!-- Email Input -->
+              <div>
+                <label for="contact-email" class="block text-xs font-bold text-stone-500 uppercase tracking-wider mb-2">Email Address</label>
+                <input type="email" id="contact-email" placeholder="e.g. arun@company.com" required
+                  class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-800 focus:outline-none focus:border-indigo-500 focus:bg-white transition-colors">
+              </div>
+
+              <!-- Message Input -->
+              <div>
+                <label for="contact-message" class="block text-xs font-bold text-stone-500 uppercase tracking-wider mb-2">Message</label>
+                <textarea id="contact-message" rows="4" placeholder="Describe your project requirements, offer details, or greeting..." required
+                  class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-800 focus:outline-none focus:border-indigo-500 focus:bg-white transition-colors resize-none"></textarea>
+              </div>
+
+              <!-- Submit Button with transition indicators -->
+              <button type="submit" id="contact-submit-btn" class="w-full btn-premium py-4">
+                Send Message 
+                <!-- Inline SVG Send -->
+                <svg class="w-4 h-4 ml-2 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" x2="11" y1="2" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 11. Footer Credits -->
+  <footer class="bg-stone-900 text-stone-400 py-16 border-t border-stone-800">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-12 border-b border-stone-800">
+        
+        <!-- Logo Branding -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-premium flex items-center justify-center text-white font-bold text-lg shadow-md shadow-indigo-500/20">
+            MZ
+          </div>
+          <div>
+            <span class="font-heading font-bold text-white text-lg tracking-tight block">zaheer.io</span>
+            <span class="text-xs text-stone-500 block">Python Django &amp; Full Stack Developer</span>
+          </div>
+        </div>
+
+        <!-- Direct Nav Links -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm">
+          <a href="#home" class="hover:text-white transition-colors">Home</a>
+          <a href="#about" class="hover:text-white transition-colors">About</a>
+          <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+          <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+          <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+          <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+        </div>
+
+      </div>
+
+      <!-- Bottom Meta -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-12 text-xs text-stone-500 text-center sm:text-left">
+        <p>&copy; 2026 Muhammed Zaheer R. All rights reserved.</p>
+        <p class="flex items-center gap-1 justify-center">
+          Crafted with premium glassmorphism tokens, 
+          <!-- Inline SVG Heart -->
+          <svg class="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg> 
+          &amp; Vanilla JS.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Link script engine -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
